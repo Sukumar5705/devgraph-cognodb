@@ -1,0 +1,28 @@
+{
+  "name": "devgraph-backend",
+  "version": "1.0.0",
+  "description": "DevGraph — Developer Collaboration & Technology Discovery via Graph Database",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "seed": "node scripts/fetch-github-data.js && node scripts/seed-cognodb.js",
+    "fetch": "node scripts/fetch-github-data.js",
+    "seed:load": "node scripts/seed-cognodb.js",
+    "verify": "node scripts/verify-graph.js",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "helmet": "^8.3.0",
+    "neo4j-driver": "^6.2.0",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
