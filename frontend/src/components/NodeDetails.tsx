@@ -125,9 +125,9 @@ export function NodeDetails({ details, onExpand, isExpanding, rootDeveloperUsern
           </Link>
         )}
 
-        {node.type === 'Repository' && p.url && (
+        {node.type === 'Repository' && typeof p.url === 'string' && (
           <a
-            href={p.url as string}
+            href={p.url}
             target="_blank"
             rel="noreferrer"
             className="w-full text-center py-2 px-4 bg-white border border-gray-300 text-gray-700 font-medium text-sm rounded-lg hover:bg-gray-50 transition-colors"

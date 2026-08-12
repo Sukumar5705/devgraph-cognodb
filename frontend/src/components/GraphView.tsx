@@ -10,7 +10,7 @@ interface GraphViewProps {
 }
 
 export function GraphView({ data, selectedNodeId, onNodeClick }: GraphViewProps) {
-  const fgRef = useRef<any>();
+  const fgRef = useRef<any>(null);
 
   // Optional: zoom to fit on first data load
   useEffect(() => {

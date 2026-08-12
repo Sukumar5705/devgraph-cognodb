@@ -45,7 +45,7 @@ export function DeveloperPage() {
     );
   }
 
-  const { developer, repositories, technologies, topics, organizations } = profile;
+  const { developer, repositories, technologies, topics } = profile;
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
