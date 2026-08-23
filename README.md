@@ -2,13 +2,13 @@
 
 Developer Collaboration & Technology Discovery
 
-Live Demo: [Link to Hosted Application (if applicable)]()  
+Live Demo: [https://devgraph-cognodb.vercel.app/](https://devgraph-cognodb.vercel.app/)  
 Repository: [https://github.com/Sukumar5705/devgraph-cognodb](https://github.com/Sukumar5705/devgraph-cognodb)  
-Demo Video: [Link to Walkthrough Video (if applicable)]()  
+Demo Video: [https://drive.google.com/file/d/1pQ2a9MMFze8L8nwYpeDoKwCNesrSHW3P/view?usp=sharing](https://drive.google.com/file/d/1pQ2a9MMFze8L8nwYpeDoKwCNesrSHW3P/view?usp=sharing)  
 
 ## Overview
 
-DevGraph is a developer collaboration and technology discovery platform designed to explore how developers, repositories, technologies, organizations, and topics connect. By modeling GitHub's rich metadata network inside a graph database, DevGraph reveals multi-hop relationship paths, shared technological ecosystems, and developer affinity groups that would be computationally expensive to query using traditional relational database schemas.
+DevGraph is a developer collaboration and technology discovery platform designed to explore how developers, repositories, technologies, organizations, and topics connect. By modeling GitHub's rich metadata network inside a graph database, DevGraph reveals multi-hop relationship paths, shared technological ecosystems, and developer affinity groups that would be more cumbersome to express using traditional relational schemas, especially for multi-hop and variable-depth traversal.
 
 ## Why a Graph Database?
 
@@ -253,7 +253,18 @@ All endpoints return a JSON payload with `{ success: true, data: ... }`.
 
 ## Screenshots
 
-- **Search Home**
-- **Developer Network Explorer**
-- **Path Connections Finder**
-- **Technology Communities**
+### Search Home
+
+![Search Home](./screenshots/search-home.png)
+
+### Developer Network Explorer
+
+![Developer Network Explorer](./screenshots/developer-network.png)
+
+### Path Connections Finder
+
+![Path Connections Finder](./screenshots/connection-finder.png)
+
+### Technology Communities
+
+![Technology Communities](./screenshots/technology-community.png)
