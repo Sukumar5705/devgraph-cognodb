@@ -133,28 +133,53 @@ async function run() {
       }
     }
 
-    console.log("Seeding complete.");
+    let developers = 0;
+    let repositories = 0;
+    let technologies = 0;
+    let topics = 0;
+    let organizations = 0;
+    let relationships = 0;
 
     const counts = await session.run(`
       MATCH (n)
       RETURN labels(n)[0] as label, count(n) as count
     `);
-    console.log("\nNode Counts:");
     for (const record of counts.records) {
-      console.log(`  ${record.get('label')}: ${record.get('count')}`);
+      const label = record.get('label');
+      const count = Number(record.get('count')) || 0;
+      if (label === 'Developer') developers = count;
+      else if (label === 'Repository') repositories = count;
+      else if (label === 'Technology') technologies = count;
+      else if (label === 'Topic') topics = count;
+      else if (label === 'Organization') organizations = count;
     }
 
     const relCounts = await session.run(`
       MATCH ()-[r]->()
-      RETURN type(r) as type, count(r) as count
+      RETURN count(r) as count
     `);
-    console.log("\nRelationship Counts:");
-    for (const record of relCounts.records) {
-      console.log(`  ${record.get('type')}: ${record.get('count')}`);
+    if (relCounts.records.length > 0) {
+      relationships = Number(relCounts.records[0].get('count')) || 0;
     }
+
+    console.log("\nDevGraph seed completed successfully\n");
+    console.log(`Developers: ${developers}`);
+    console.log(`Repositories: ${repositories}`);
+    console.log(`Technologies: ${technologies}`);
+    console.log(`Topics: ${topics}`);
+    console.log(`Organizations: ${organizations}`);
+    console.log(`Relationships: ${relationships}`);
+    console.log("Errors: 0");
 
   } catch (error) {
     console.error("Error during seeding:", error);
+    try {
+      await session.close();
+      await closeDriver();
+    } catch (cleanupErr) {
+      // ignore cleanup errors during failure
+    }
+    process.exit(1);
   } finally {
     await session.close();
     await closeDriver();

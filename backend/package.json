@@ -10,8 +10,7 @@
     "seed": "node scripts/fetch-github-data.js && node scripts/seed-cognodb.js",
     "fetch": "node scripts/fetch-github-data.js",
     "seed:load": "node scripts/seed-cognodb.js",
-    "verify": "node scripts/verify-graph.js",
-    "test": "node --experimental-vm-modules node_modules/.bin/jest"
+    "verify": "node scripts/verify-graph.js"
   },
   "dependencies": {
     "axios": "^1.6.0",

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { ArrowRight, Search, GitCommit, Loader2 } from 'lucide-react';
 import { getDeveloperPath } from '../api/connectionApi';
@@ -19,11 +19,12 @@ export function ConnectionsPage() {
   const [hasSearched, setHasSearched] = useState(false);
 
   // Auto-submit if both are present in URL on mount
-  useState(() => {
+  useEffect(() => {
     if (initialFrom && initialTo && !hasSearched) {
       handleSearch(null, initialFrom, initialTo);
     }
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   async function handleSearch(e: React.FormEvent | null, from = fromDev, to = toDev) {
     if (e) e.preventDefault();

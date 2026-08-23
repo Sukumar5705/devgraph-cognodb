@@ -12,7 +12,7 @@ export function NotFoundPage() {
         <div className="space-y-1.5">
           <h1 className="text-3xl font-bold text-[#141414]">Page Not Found</h1>
           <p className="text-sm sm:text-base text-[#64748B]">
-            The requested intelligence report or view could not be located.
+            The page you're looking for doesn't exist.
           </p>
         </div>
         <div>
@@ -21,7 +21,7 @@ export function NotFoundPage() {
             className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#036AFF] to-[#6366F1] px-5 py-2.5 text-sm font-bold text-white shadow-md hover:opacity-95 transition-all"
           >
             <ArrowLeft className="h-4 w-4" />
-            <span>Return to DevIntel Home</span>
+            <span>Back to DevGraph</span>
           </Link>
         </div>
       </div>
